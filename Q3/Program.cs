@@ -1,5 +1,5 @@
-﻿/*
- * Vraag 3 - Moving Object
+﻿/* Vraag 3 - Moving Object
+ * 
  * Een object zweeft met een vaste snelheid van 20 punten p/s door de ruimte.
  * Op het moment van schrijven bevindt het object zich op positie x: 30, y: 50 en z: 90.
  * Het object beweegt naar x: 4^6, y: 4^8 en z: 9.
@@ -9,10 +9,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Q3
 {
