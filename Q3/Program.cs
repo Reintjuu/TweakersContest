@@ -31,6 +31,16 @@ namespace Q3
 		{
 			return (String.Format("(x:{0} y:{1} z:{2})", x, y, z));
 		}
+
+		public static Vector3 operator *(Vector3 a, float d)
+		{
+			return new Vector3(a.x * d, a.y * d, a.z * d);
+		}
+
+		public static Vector3 operator +(Vector3 a, Vector3 b)
+		{
+			return new Vector3(a.x + b.x, a.y + b.y, a.z + b.z);
+		}
 	}
 
 	class Program
@@ -40,21 +50,11 @@ namespace Q3
 			Vector3 a = new Vector3(30, 50, 90);
 			Vector3 b = new Vector3(Math.Pow(4, 6), Math.Pow(4, 8), 9);
 
-			Console.WriteLine(Lerp(a, b, (20 * 60 * 25) / Magnitude(Difference(a, b))));
-
-			//Console.WriteLine(Math.Cos(DotProduct(a, b) / (Magnitude(a) * Magnitude(b))));
+			Vector3 movement = Difference(b, a);
+			Vector3 position = Normalize(movement) * 20f * 60f * 25f + a;
+			Console.WriteLine(position);
 
 			Console.ReadKey();
-		}
-
-		private static double DotProduct(Vector3 a, Vector3 b)
-		{
-			return a.x * b.x + a.y * b.y + a.z * b.z;
-		}
-
-		private static double Magnitude(Vector3 vector)
-		{
-			return Math.Sqrt(vector.x * vector.x + vector.y * vector.y + vector.z + vector.z);
 		}
 
 		private static Vector3 Difference(Vector3 a, Vector3 b)
@@ -62,9 +62,10 @@ namespace Q3
 			return new Vector3(a.x - b.x, a.y - b.y, a.z - b.z);
 		}
 
-		private static Vector3 Lerp(Vector3 a, Vector3 b, double t)
+		private static Vector3 Normalize(Vector3 a)
 		{
-			return new Vector3(a.x * t + b.x * (1 - t), a.y * t + b.y * (1 - t), a.z * t + b.z * (1 - t));
+			double distance = Math.Sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
+			return new Vector3(a.x / distance, a.y / distance, a.z / distance);
 		}
 	}
 }
