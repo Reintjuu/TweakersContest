@@ -6,7 +6,7 @@
  *
  * Er zijn 120 omkeerbare getallen onder 1000.
  *
- * Hoeveel omkeerbare getallen zijn er onder 100 miljoen (108)?
+ * Hoeveel omkeerbare getallen zijn er onder 100 miljoen (10^8)?
  */
 
 using System;
